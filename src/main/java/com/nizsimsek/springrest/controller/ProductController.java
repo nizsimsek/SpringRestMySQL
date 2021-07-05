@@ -5,6 +5,7 @@ import com.nizsimsek.springrest.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -29,6 +30,14 @@ public class ProductController {
 
     @PostMapping
     Product addProduct(Product product) {
+        return repository.save(product);
+    }
+
+    @PutMapping("/{id}")
+    Product updateProduct(@PathVariable Long id, @RequestBody Map<String , String> body) {
+        Product product = repository.getById(id);
+        product.setName(body.get("name"));
+        product.setPrice(body.get("price"));
         return repository.save(product);
     }
 
