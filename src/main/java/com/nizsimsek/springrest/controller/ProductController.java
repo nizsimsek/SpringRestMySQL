@@ -2,13 +2,12 @@ package com.nizsimsek.springrest.controller;
 
 import com.nizsimsek.springrest.domain.Product;
 import com.nizsimsek.springrest.repository.ProductRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RepositoryRestResource
+@RestController
 @RequestMapping("/products")
 public class ProductController {
 
